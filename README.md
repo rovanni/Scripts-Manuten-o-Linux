@@ -1,9 +1,10 @@
-
+<a name="inicio"></a>
 # System Update and Maintenance Script / Script de Atualização e Manutenção do Sistema
 
 [![GitHub license](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/rovanni/LinuxUpdateManager/blob/master/LICENSE)
 
-**English** | **[Português](#português)**
+<a name="english"></a>
+**[English Version](#english)** | **[Versão em Português](#português)**
 
 ---
 
@@ -61,3 +62,5 @@ sudo chmod +x /usr/local/bin/update_system_pt-br.sh
 **Luciano R. Nascimento**  
 [![Email](https://img.shields.io/badge/Email-rovanni%40gmail.com-blue?logo=gmail)](mailto:rovanni@gmail.com)  
 [![GitHub](https://img.shields.io/badge/GitHub-rovanni-blue?logo=github)](https://github.com/rovanni)
+
+[⬆️ Back to top](#inicio) | [Voltar ao inicio](#inicio)
