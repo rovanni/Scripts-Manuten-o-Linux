@@ -9,110 +9,75 @@
 # Description:       Complete system upgrade, clean unnecessary packages, remove only old or duplicate packages.
 ### END INIT INFO
 
+# Criado por: Luciano R.N.
 
+function pause(){
+    ###################################################################
+    # Função para criar uma pausa
+    ###################################################################
+    read -s -n 1 -p "Pressione qualquer tecla para continuar . . ."
+    echo ""
+}
 
 clear
 echo
-echo "Limpando o cache das Atualizacoes............................................................";
+echo "Atualizando o sistema..."
 echo
-################# Baixando e Instalando Atualiza��es ###############################
-sudo apt-get clean -y
-echo
-echo "Cache das Atualizacoes Limpo...........................................................[ OK ]";
-echo
-sleep 3
 
-echo
-echo "Atualizar Base dados das Atualizacoes........................................................";
-echo
-####################### Atualizar Base dados #######################################
+# Atualizar a base de dados antes de limpar o cache
+echo "Atualizando a base de dados de pacotes..."
 sudo apt-get update
-echo
-echo "Base de dados Atualizadas..............................................................[ OK ]";
-echo
-sleep 3
+echo "Base de dados atualizada. [OK]"
+sleep 1
 
+# Limpando o cache
+echo "Limpando o cache de pacotes..."
+sudo apt-get clean -y
+echo "Cache limpo. [OK]"
+sleep 1
 
-echo
-echo "Corrigindo Problemas com dependencias........................................................";
-echo
-################# Corrigindo Problemas com dependencias ############################
+# Corrigir pacotes quebrados
+echo "Corrigindo problemas de dependências..."
 sudo apt-get install -f -y
-echo
-echo "Problemas com dependencias Corrigindos.................................................[ OK ]";
-echo
-sleep 3
-
-
-
-echo
-echo "Reparando Problemas..........................................................................";
-echo
-################# Corrigindo Problemas com dependencias ############################
 sudo dpkg --configure -a
 sudo apt --fix-broken install
-echo
-echo "Problemas Reparados....................................................................[ OK ]";
-echo
-sleep 3
+echo "Problemas corrigidos. [OK]"
+sleep 1
 
+# Atualizar pacotes do sistema
+echo "Baixando e instalando atualizações..."
+sudo apt-get upgrade -y
+echo "Atualizações instaladas. [OK]"
+sleep 1
 
+# Atualizar distribuição
+echo "Baixando e instalando atualizações da distribuição..."
+sudo apt-get dist-upgrade -y
+echo "Atualizações da distribuição instaladas. [OK]"
+sleep 1
 
-echo
-echo "Baixando e Instalando as Atualizacoes........................................................";
-echo
-################# Baixando e Instalando Atualiza��es ###############################
-sudo apt-get upgrade -f -y
-echo
-echo "Atualizacoes Instaladas................................................................[ OK ]";
-echo
-sleep 3
-
-
-echo
-echo "Baixando e Instalando Atualizacoes das distribuicoes.........................................";
-echo
-################# Baixando e Instalando Atualiza��es ###############################
-sudo apt-get dist-upgrade -f -y
-sudo apt-get full-upgrade -f -y
-echo
-echo "Atualizacoes das distribuicoes Instaladas..............................................[ OK ]";
-echo
-sleep 3
-
-echo
-echo "Verificando pacotes antigos ou duplicados....................................................";
-echo
-################# Baixando e Instalando Atualiza��es ###############################
+# Remover pacotes desnecessários e antigos
+echo "Removendo pacotes antigos e desnecessários..."
+sudo apt-get autoremove -y
 sudo apt-get autoclean -y
-echo
-echo "Pacotes antigos ou duplicados removidos................................................[ OK ]";
-echo
-sleep 3
+echo "Pacotes removidos. [OK]"
+sleep 1
 
+# Atualizar Snap
+echo "Atualizando Snap Store e aplicativos Snap..."
+sudo killall snap-store
+sudo snap refresh
+echo "Atualizações do Snap concluídas. [OK]"
+sleep 1
 
-echo
-echo "Procurando pacotes desnecessarios............................................................";
-echo
-################# Baixando e Instalando Atualiza��es ###############################
-sudo apt-get autoremove -f -y
-echo
-echo "Pacotes desnecessario Removidos........................................................[ OK ]";
-echo
-sleep 3 
+# Atualizar ClamAV
+echo "Atualizando banco de dados do ClamAV..."
+sudo systemctl stop clamav-freshclam
+sudo freshclam
+sudo systemctl start clamav-freshclam
+echo "Banco de dados do ClamAV atualizado. [OK]"
+sleep 1
 
-
-echo
-echo "Atualizar Base de dados Antivirus Clamav.....................................................";
-echo
-################# Atualizar Base dados Antivirus Clamav ###############################
-sudo /etc/init.d/clamav-freshclam stop
-sudo /usr/bin/freshclam -v
-sudo /etc/init.d/clamav-freshclam start
-echo
-echo "Base de dados Antivirus Clamav Atualizada..............................................[ OK ]";
-echo
-echo "Saindo..."
-sleep 3
-
+echo "Atualização concluída!"
+pause
 exit 0
