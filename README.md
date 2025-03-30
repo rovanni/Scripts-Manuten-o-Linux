@@ -8,7 +8,7 @@
 
 ---
 
-## 🇺🇸 English Version
+## English Version
 
 ### Overview
 A bash script to automate system updates, cleanup, and maintenance tasks on Debian-based systems.
@@ -32,7 +32,7 @@ sudo wget -O /usr/local/bin/update_system_en.sh https://raw.githubusercontent.co
 sudo chmod +x /usr/local/bin/update_system_en.sh
 ```
 <a name="português"></a>
-# 🇧🇷 Versão em Português
+# Versão em Português
 
 ## Visão Geral
 Script bash para automatizar atualizações, limpeza e manutenção em sistemas baseados em Debian.
