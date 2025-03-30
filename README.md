@@ -1,8 +1,9 @@
+
 # System Update and Maintenance Script / Script de Atualização e Manutenção do Sistema
 
-![GitHub license](https://img.shields.io/badge/license-GPLv3-blue.svg)
+[![GitHub license](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/rovanni/LinuxUpdateManager/blob/master/LICENSE)
 
-**English** | **[Português](#português-br)**
+**English** | **[Português](#português)**
 
 ---
 
@@ -24,12 +25,12 @@ A bash script to automate system updates, cleanup, and maintenance tasks on Debi
 ### Installation
 ```bash
 # Download scripts
-sudo wget -O /usr/local/bin/update_system_en.sh https://raw.githubusercontent.com/rovanni/LinuxUpdateManager/main/update_system_en.sh
-sudo wget -O /usr/local/bin/update_system_pt.sh https://raw.githubusercontent.com/rovanni/LinuxUpdateManager/main/update_system_pt.sh
+sudo wget -O /usr/local/bin/update_system_en.sh https://raw.githubusercontent.com/rovanni/LinuxUpdateManager/main/update-en.sh
 
 # Make executable
-sudo chmod +x /usr/local/bin/update_system_*.sh
+sudo chmod +x /usr/local/bin/update_system_en.sh
 ```
+<a name="português"></a>
 # 🇧🇷 Versão em Português
 
 ## Visão Geral
@@ -48,14 +49,13 @@ Script bash para automatizar atualizações, limpeza e manutenção em sistemas 
 ## Instalação
 ```bash
 # Baixar scripts
-sudo wget -O /usr/local/bin/update_system_pt.sh https://raw.githubusercontent.com/rovanni/LinuxUpdateManager/main/update_system_pt.sh
-sudo wget -O /usr/local/bin/update_system_en.sh https://raw.githubusercontent.com/rovanni/LinuxUpdateManager/main/update_system_en.sh
+sudo wget -O /usr/local/bin/update_system_pt-br.sh https://raw.githubusercontent.com/rovanni/LinuxUpdateManager/main/update-pt-br.sh
 
 # Tornar executável
-sudo chmod +x /usr/local/bin/update_system_*.sh
+sudo chmod +x /usr/local/bin/update_system_pt-br.sh
 ```
 ## 📜 Licença  
-**GNU General Public License v3.0** - Ver [LICENÇA](https://github.com/rovanni/LinuxUpdateManager/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/badge/license-GPLv3-blue.svg)](https://github.com/rovanni/LinuxUpdateManager/blob/master/LICENSE)
 
 ## ✒️ Author / Autor  
 **Luciano R. Nascimento**  
