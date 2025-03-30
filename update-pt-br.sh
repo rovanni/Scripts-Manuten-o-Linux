@@ -27,13 +27,13 @@ echo
 # Atualizar a base de dados antes de limpar o cache
 echo "Atualizando a base de dados de pacotes..."
 sudo apt-get update
-echo "Base de dados atualizada. [OK]"
+echo "Base de dados atualizada. ✅"
 sleep 1
 
 # Limpando o cache
 echo "Limpando o cache de pacotes..."
 sudo apt-get clean -y
-echo "Cache limpo. [OK]"
+echo "Cache limpo. ✅"
 sleep 1
 
 # Corrigir pacotes quebrados
@@ -41,33 +41,33 @@ echo "Corrigindo problemas de dependências..."
 sudo apt-get install -f -y
 sudo dpkg --configure -a
 sudo apt --fix-broken install
-echo "Problemas corrigidos. [OK]"
+echo "Problemas corrigidos. ✅"
 sleep 1
 
 # Atualizar pacotes do sistema
 echo "Baixando e instalando atualizações..."
 sudo apt-get upgrade -y
-echo "Atualizações instaladas. [OK]"
+echo "Atualizações instaladas. ✅"
 sleep 1
 
 # Atualizar distribuição
 echo "Baixando e instalando atualizações da distribuição..."
 sudo apt-get dist-upgrade -y
-echo "Atualizações da distribuição instaladas. [OK]"
+echo "Atualizações da distribuição instaladas. ✅"
 sleep 1
 
 # Remover pacotes desnecessários e antigos
 echo "Removendo pacotes antigos e desnecessários..."
 sudo apt-get autoremove -y
 sudo apt-get autoclean -y
-echo "Pacotes removidos. [OK]"
+echo "Pacotes removidos. ✅"
 sleep 1
 
 # Atualizar Snap
 echo "Atualizando Snap Store e aplicativos Snap..."
 sudo killall snap-store
 sudo snap refresh
-echo "Atualizações do Snap concluídas. [OK]"
+echo "Atualizações do Snap concluídas. ✅"
 sleep 1
 
 # Atualizar ClamAV
@@ -75,7 +75,7 @@ echo "Atualizando banco de dados do ClamAV..."
 sudo systemctl stop clamav-freshclam
 sudo freshclam
 sudo systemctl start clamav-freshclam
-echo "Banco de dados do ClamAV atualizado. [OK]"
+echo "Banco de dados do ClamAV atualizado. ✅"
 sleep 1
 
 echo "Atualização concluída!"
